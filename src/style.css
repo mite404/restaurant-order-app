@@ -27,6 +27,11 @@ html {
   text-size-adjust: none;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Remove default margin in favour of better control in authored CSS */
 body, h1, h2, h3, h4, p,
 figure, blockquote, dl, dd {
@@ -105,6 +110,29 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* Header */
+.header-container {
+  width: 100vw;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.header-img {
+  position: absolute;
+  top: -160px;
+  left: -20px;
+  width: 100vw;
+  height: auto;
+}
+
+
+/* Menu Section */
+
+/* Checkout Section */
+
+/* Modal Popup */
 
 @media (prefers-color-scheme: light) {
   :root {
