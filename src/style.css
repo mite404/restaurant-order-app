@@ -122,15 +122,91 @@ button:focus-visible {
 .header-img {
   position: absolute;
   top: -160px;
-  left: -20px;
   width: 100vw;
-  height: auto;
 }
 
 
 /* Menu Section */
 
+/*.menu-container {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+.menu-item-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  /*height: 100vh;*/
+  /*flex-direction: row;*/
+  /*align-items: flex-start;*/
+  /*margin-bottom: 8px;*/
+  /*padding: 8px;*/
+  border-bottom: 1px solid #afaeae;
+}
+
+.column {
+  flex: 1;
+  /*display: flex;*/
+  align-items: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.item-name {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.ingredients {
+  flex: 2;
+  margin-right: 10px;
+}
+
+.price {
+  flex: 0 0 50px;
+  text-align: left;
+}
+
+#emoji {
+  font-size: 5em;
+}
+
+.add {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /*background-color: #1a1a1a;*/
+  outline: gray solid;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
 /* Checkout Section */
+
+.order {
+  color: white;
+}
 
 /* Modal Popup */
 
@@ -142,6 +218,7 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
