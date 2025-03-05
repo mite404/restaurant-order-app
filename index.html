@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Stylesheet -->
     <link rel="stylesheet" href="./src/style.css">
+<!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+<!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+    />
     <title>Restaurant Order App</title>
   </head>
   
@@ -23,6 +36,26 @@
     
     <div class="order" id="order">
     <!-- Order List injected here -->
+    </div>
+    
+<!-- Modal payment window -->
+    <div id="modal-backdrop" class="hidden">
+      <div id="modal" class="hidden">
+        <div class="close-modal-btn-container">
+          <button class="modal-close-btn" id="modal-close-btn">X</button>
+        </div>
+          <h2>Enter Card Details</h2>
+          <form id="paymentConsent">
+            <label for="name-field">Enter your name</label>
+            <input id="name-field" type="text" name="name-field" required>
+            <label for="card-field">Enter card number</label>
+            <input id="card-field" type="number" name="card-field" required>
+            <label for="cvv-field">Enter your name</label>
+            <input id="cvv-field" type="number" name="cvv-field" required>
+            
+            <button class="button" type="submit">Pay</button>
+          </form>
+      </div>
     </div>
     
     <script type="module" src="/src/main.js"></script>
