@@ -6,7 +6,6 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -25,6 +24,7 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  font-size: 16px;
 }
 
 html, body {
@@ -47,7 +47,9 @@ ol[role='list'] {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  line-height: 1.5;
+  /*line-height: 1.6;*/
+  font-weight: 400;  /* Adjust as needed */
+  color: #b0b0b0; /* Almost black, adjust if needed */
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -60,6 +62,8 @@ button, input, label {
 h1, h2,
 h3, h4 {
   text-wrap: balance;
+  font-weight: 700; /* Or bolder as needed */
+  /*margin-bottom: 0.5em; !* Space below headings *!*/
 }
 
 /* A elements that don't have a class get default styles */
@@ -96,10 +100,10 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  /*font-size: 1em;*/
+  /*font-weight: 500;*/
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #4d4d4d;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -111,12 +115,27 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+/*-------------------------------*/
+hr {
+  width: 375px;
+  border: 1px solid #b0b0b0;
+}
+
+.emoji {
+  font-size: 5em;
+  padding: 10px;
+  margin: 0 auto;
+  align-self: center;
+}
+
 /* Header */
 .header-container {
   width: 100vw;
   height: 300px;
   overflow: hidden;
   position: relative;
+  /*border: 1px solid #d372ff;*/
 }
 
 .header-img {
@@ -128,40 +147,46 @@ button:focus-visible {
 
 /* Menu Section */
 
-/*.menu-container {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*}*/
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  /*border: 1px solid #1870fa;*/
+
+}
+
+.menu.h3 {
+  font-family: Inter, serif;
+  font-weight: 800; /* Or bolder as needed */
+  /*margin-bottom: .5em;*/
+  font-size: 2.75em; /* Space below headings */
+}
 
 .menu-item-row {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  /*height: 100vh;*/
-  /*flex-direction: row;*/
-  /*align-items: flex-start;*/
-  /*margin-bottom: 8px;*/
-  /*padding: 8px;*/
-  border-bottom: 1px solid #afaeae;
+  padding: 1.25em;
+  /*border-bottom: 1px solid #afaeae;*/
+  /*border: 1px solid #2aea16;*/
 }
 
-.column {
+.menu-item-row .column.left {
+  flex: 0 0 auto;
+  /*justify-content: right;*/
+  /*text-align: right;*/
+  /*border: 1px solid #fff21d;*/
+}
+
+.menu-container .column.center {
   flex: 1;
-  /*display: flex;*/
-  align-items: center;
+  padding-left: 1em;
+  /*border: 1px solid #942bff;*/
 }
 
-.left {
-  justify-content: flex-start;
-}
-
-.center {
-  justify-content: center;
-}
-
-.right {
-  justify-content: flex-end;
+.menu-container .column.right {
+  flex: 0 0 auto;
+  justify-content: left;
+  /*border: 1px solid #ff2ba3;*/
 }
 
 .item-name {
@@ -175,12 +200,10 @@ button:focus-visible {
 }
 
 .price {
+  font-family: Inter, serif;
   flex: 0 0 50px;
   text-align: left;
-}
-
-#emoji {
-  font-size: 5em;
+  font-size: 1em;
 }
 
 .add {
@@ -200,15 +223,218 @@ button:focus-visible {
   transition: background-color 0.3s;
 }
 
+#addbtn {
+  margin: 20px;
+}
 
 
 /* Checkout Section */
 
+/* Styling for the total price area */
 .order {
-  color: white;
+  justify-content: space-between;
+  /*justify-content: space-between;*/
+  font-weight: 400;
+  font-size: 1.1em;
+
+}
+
+.order-heading {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em;
+  /*border-bottom: 1px solid #afaeae;*/
+  /*border: 1px solid #da0000;*/
+}
+
+.order .column.left {
+  /*display: flex;*/
+  /*flex: 0 0 auto;*/
+  /*padding: 1.25em;*/
+  /*align-items: center;*/
+  /*height: 100%;*/
+  /*border: 1px solid #92b65c;*/
+}
+
+.order p {
+  margin: 0 auto;
+}
+
+.order.h3 {
+  display: flex;
+  align-items: center;
+  /*height: 200px;*/
+  font-family: Inter, serif;
+  font-weight: 800; /* Or bolder as needed */
+  /*margin-bottom: .5em;*/
+  font-size: 1.25em; /* Space below headings */
+  /*padding: 20px;*/
+}
+
+.order #emoji {
+  font-size: 2em;
+  padding: 20px;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.order .column.center {
+  font-family: Inter, sans-serif;
+  display: flex;
+  align-items: center;
+  /*padding: 1.25em;*/
+  /*height: 100%;*/
+  flex: 1;
+  margin: 0 auto;
+  /*border: 1px solid #e8e8e8;*/
+}
+
+#removebtn {
+  padding: 20px;
+}
+
+.order .column.right {
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  padding: 1.25em;
+  /*border: 1px solid #1d0cec;*/
+}
+
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em;
+  /*border: 1px solid #3c85f3;*/
+}
+
+.total-price-text {
+  padding: 1.25em;
+  /*border: 1px solid #f3613c;*/
+}
+
+.total-price {
+  justify-content: flex-end;
+  padding: 1.25em;
+  /*border: 1px solid #b17ecb;*/
+}
+
+#completebtn-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5em;
+}
+
+#completebtn {
+  background-color: #66BB6A;
 }
 
 /* Modal Popup */
+
+#modal.hidden {
+  display: none;
+}
+
+#modal {
+  position: fixed;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 340px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px 2px #666;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  color: #b0b0b0;
+  background-color: #3b3a3a;
+  z-index: 1000;
+  display: none;
+}
+
+#modal.hidden {
+  display: none;
+}
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 31, 31, 0.5);
+  z-index: 999; /* Ensure the backdrop is behind the modal but above other elements */
+  display: none; /* Initially hidden */
+}
+
+#modal-backdrop.visible {
+  display: block;
+}
+
+#modal.visible {
+  display: block;
+}
+
+.close-modal-btn-container {
+  text-align: right;
+  margin: 0;
+}
+
+.modal-close-btn {
+  font-family: Inter, sans-serif;
+  font-size: 1.2em;
+  padding: 2px;
+  /*font-weight: bold;*/
+  background-color: transparent;
+  /*border: 1px solid transparent;*/
+  color: whitesmoke;
+}
+
+/*.modal-close-btn:hover,*/
+.modal-close-btn:active{
+  color: red;
+  cursor: pointer;
+}
+
+#modal-layout h4 {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  /*margin-bottom: .5em;*/
+  font-size: 1.25em; /
+  color: #b0b0b0;
+  /*padding: 10px;*/
+  /*display: inline-block;*/
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+}
+
+#paymentConsentForm {
+  padding: 10px;
+  /*display: block;*/
+}
+
+#paymentBtn {
+  display: flex;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  margin: 0 auto;
+  color: #b0b0b0;
+}
+
+input {
+  padding: 6px;
+  margin: 4px;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
