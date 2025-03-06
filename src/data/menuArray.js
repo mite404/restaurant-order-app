@@ -1,4 +1,6 @@
-export const menuArray = [
+// Array holding the menu items
+
+const menuArray = [
   {
     name: "PIZZA",
     ingredients: ["Pepperoni", "Mushroom", "Mozzarella"],
@@ -21,3 +23,5 @@ export const menuArray = [
     id: 2
   }
 ]
+
+export default menuArray;
