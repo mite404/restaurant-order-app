@@ -1,77 +1,66 @@
 import menuArray from "./data/menuArray.js";
 import User from "./models/User.js";
 import { renderMenu } from "./views/view.js";
-import { handleAddItemClick, handleRemoveItemClick } from "./utils/utils.js";
+import {
+  handleAddItemClick,
+  handleRemoveItemClick,
+  toggleModalVisibility,
+} from "./utils/utils.js";
 
 const menuContainer = document.getElementById("menu-container");
-const modal = document.getElementById("modal");
-const backdrop = document.getElementById("modal-backdrop");
-const form = document.getElementById("paymentConsentForm")
+const paymentBtn = document.getElementById("paymentBtn");
+const ccform = document.getElementById("paymentConsentForm");
 
-// Event Listeners
+// Add Item Event Listeners
+// `removebtn` gets rendered on the page later, so document event listener is used
 document.addEventListener("click", (e) => {
-  const target = e.target;
-
-  if (target.dataset.addbtn) {
+  if (e.target.dataset.addbtn) {
     console.log("`addbtn` EventListener attached");
-    handleAddItemClick(target.dataset.addbtn);
-
-  } else if (target.dataset.removebtn) {
+    handleAddItemClick(e.target.dataset.addbtn);
+  } else if (e.target.dataset.removebtn) {
     console.log("`handleRemoveItemClick` called");
-    handleRemoveItemClick(target.dataset.removebtn);
+    handleRemoveItemClick(e.target.dataset.removebtn);
+  }
+});
 
-  // Modal Event Listeners
-  } else if (target.id === "completebtn") {
+// Modal Event Listeners
+// `modal-close-btn` gets rendered on the page later, so document event listener is used
+document.addEventListener("click", (e) => {
+  if (e.target.id === "completebtn") {
     console.log("`completebtn` EventListener attached");
     toggleModalVisibility(true);
-
-  } else if (target.id === "modal-close-btn") {
+  } else if (e.target.id === "modal-close-btn") {
     console.log("`modal-close-btn` EventListener attached");
     toggleModalVisibility(false);
+  }
+});
 
-  // Payment Consent Form Event Listeners
-  } else if (target.id === "paymentBtn") {
-    if (!form.reportValidity()) {
-      e.preventDefault();
-    } else {
-      const name = document.getElementById("name-field").value;
-      const cardNumber = document.getElementById("card-field").value;
-      const cvv = document.getElementById("cvv-field").value;
+// Payment Consent Form Event Listeners
+paymentBtn.addEventListener("click", (e) => {
+  if (!ccform.reportValidity()) {
+    e.preventDefault();
+  } else {
+    const name = document.getElementById("name-field").value;
+    const cardNumber = document.getElementById("card-field").value;
+    const cvv = document.getElementById("cvv-field").value;
 
-      addCreditCard(name, cardNumber, cvv);
-    }
+    addCreditCard(name, cardNumber, cvv);
   }
 });
 
 // Credit Card input - numbers only
-document.addEventListener("input", (e) => {
-  const target = e.target;
+ccform.addEventListener("input", (e) => {
+  const numericValue = e.target.value.replace(/[^0-9]/g, ""); // Remove non-numeric chars
 
-  if (target.id === "card-field") {
-    let value = target.value.replace(/\D/g, ""); // Remove non-digits
-    value = value.replace(/(\d{4})(?=\d)/g, "$1 "); // Add spaces every 4 digits
-    target.value = value;
-
-  } else if (target.id === "cvv-field") {
-    let value = target.value.replace(/\D/g, "");
-    if (value.length > 3) {
-      value = value.slice(0, 3);
+  if (e.target.id === "card-field") {
+    e.target.value = numericValue;
+  } else if (e.target.id === "cvv-field") {
+    e.target.value = numericValue;
+    if (numericValue.length > 3) {
+      e.target.value = numericValue;
     }
-    target.value = value;
   }
 });
-
-function toggleModalVisibility(isVisible) {
-  if (isVisible) {
-    modal.classList.remove("hidden");
-    modal.classList.add("visible");
-    backdrop.classList.add("visible");
-  } else {
-    modal.classList.add("hidden");
-    modal.classList.remove("visible");
-    backdrop.classList.remove("visible");
-  }
-}
 
 function addCreditCard(name, cardNumber, cvv) {
   const newUser = new User(name, cardNumber, cvv);
