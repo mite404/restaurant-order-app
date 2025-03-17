@@ -23,6 +23,7 @@ Starting with an empty HTML template, you'll see the following folders and files
 └── package.json
 └── index.html
 ```
+[Deployed Site](https://ethan-restaurant-app.netlify.app/)
 
 The goal of this project for me was to focus on the logic within JS, do as much as possible from scratch and implement industry best practices via the Model/View/Controller separation of concerns.
 The assignment was to:
