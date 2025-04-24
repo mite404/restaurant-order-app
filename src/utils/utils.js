@@ -3,6 +3,9 @@
 import menuArray from "../data/menuArray.js";
 import { updateCartDisplay } from "../views/view.js";
 
+const modal = document.getElementById("modal");
+const backdrop = document.getElementById("modal-backdrop");
+
 export const cart = [];
 
 export function handleAddItemClick(itemId) {
@@ -48,4 +51,16 @@ export function removeItemFromCart(itemIndex) {
 
 export function findItemIndex(itemId) {
   return cart.findIndex((item) => item.id === parseInt(itemId));
+}
+
+export function toggleModalVisibility(isVisible) {
+  if (isVisible) {
+    modal.classList.remove("hidden");
+    modal.classList.add("visible");
+    backdrop.classList.add("visible");
+  } else {
+    modal.classList.add("hidden");
+    modal.classList.remove("visible");
+    backdrop.classList.remove("visible");
+  }
 }
