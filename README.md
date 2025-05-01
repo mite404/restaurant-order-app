@@ -1,9 +1,4 @@
 # Restaurant Order App
-#### Scrimba Capstone Project
-
-## 🚀 Project Structure
-
-Starting with an empty HTML template, you'll see the following folders and files:
 
 ```text
 /
@@ -27,11 +22,11 @@ Starting with an empty HTML template, you'll see the following folders and files
 
 The goal of this project for me was to focus on the logic within JS, do as much as possible from scratch and implement industry best practices via the Model/View/Controller separation of concerns.
 The assignment was to:
-- [] Follow a design spec
-- [] Render the 3 menu options using JavaScript
-- [] Be able to add/remove items
-- [] Have a payment modal with compulsory form inputs
-- [] Practice implementing basic JavaScript concepts; .map(), .reduce(), .join(), for loop, classes, arrow functions, data-attributes, DOM manipulation
+- [x] Follow a design spec
+- [x] Render the 3 menu options using JavaScript
+- [x] Be able to add/remove items
+- [x] Have a payment modal with compulsory form inputs
+- [x] Practice implementing basic JavaScript concepts; .map(), .reduce(), .join(), for loop, classes, arrow functions, data-attributes, DOM manipulation
 
 ## 👀 Want to learn more?
 
